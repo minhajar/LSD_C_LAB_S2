@@ -1,4 +1,5 @@
 #include "header.h"
+#include <stdio.h>
 
 
 // ? Note: A static function in C is a function that has a scope that is
@@ -9,7 +10,7 @@
 
 static bool    is_prime(int n)
 {
-    for (int i=0;i<n;i++)
+    for (int i=2;i<n;i++)
         if (n%i==0)
             return False;
     return True;
@@ -18,7 +19,7 @@ static bool    is_prime(int n)
 
 void    get_primes(int n)
 {
-    for(int i=0;i<n;i++)
+    for(int i=2;i<n;i++)
         if (is_prime(i)==True)
             printf(i);
     return;
