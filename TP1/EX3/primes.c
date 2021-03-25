@@ -1,5 +1,6 @@
 #include "header.h"
 
+
 // ? Note: A static function in C is a function that has a scope that is
 // limited to its object file. This means that the static function is only
 // visible in its object file.
@@ -8,12 +9,18 @@
 
 static bool    is_prime(int n)
 {
-    // write is_prime function code here
+    for (int i=0;i<n;i++)
+        if (n%i==0)
+            return False;
+    return True;
 }
 
 
 void    get_primes(int n)
 {
-    // write get_primes function code here that use is_prime function
+    for(int i=0;i<n;i++)
+        if (is_prime(i)==True)
+            printf(i);
+    return;
 }
 
