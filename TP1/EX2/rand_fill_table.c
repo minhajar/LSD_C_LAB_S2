@@ -1,5 +1,6 @@
 #include "header.h"
-
+#include<stdio.h>
+#include<stdlib.h>
 /*
 ** Hint: You need to use rand function for generating random numbers
 ** and to get out of getting the same series of random numbers every time
@@ -8,5 +9,10 @@
 */
 void rand_fill_table(int *tab, int size)
 {
-    // fill up your table here with randome elements between 10 and 100
+    tab=(int*)malloc(size*sizeof(int));
+    srand(rand());
+    int i;
+    for ( i=0;i<size;i++)
+    	printf("%d,",tab[i]=rand());
+    return;
 }
