@@ -14,7 +14,7 @@ int main()
     p=tree_diameter(T);
     d=tree_depth(T);
     s=leaf_sum(T);
-    printf("%d\n%d\n",d,s);
+    printf("%d\n%d\n%d\n",d,s,p);
     return 0;
 
 }
