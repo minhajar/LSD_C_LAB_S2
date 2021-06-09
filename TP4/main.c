@@ -10,7 +10,8 @@ int main()
     Btree D2=create_Btree(14,D1,NULL);
     Btree D=create_Btree(10,NULL,D2);
     Btree T=create_Btree(8,G,D);
-    int d,s;
+    int d,s,p;
+    p=tree_diameter(T);
     d=tree_depth(T);
     s=leaf_sum(T);
     printf("%d\n%d\n",d,s);
