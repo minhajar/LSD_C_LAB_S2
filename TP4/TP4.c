@@ -10,6 +10,26 @@ Btree create_Btree(int x, Btree A,Btree B)
     
 } 
 
+void push_Btree_stack(Btree T , Bstack * S)
+{
+    if( S->lenght == N)
+        //printf("empty Bstack \n");
+        return;
+    S->top_stack[S->lenght]=T;
+
+    S->lenght++;
+
+
+}
+Btree pop_Btree_stack(Bstack * S)
+{
+    if(S==NULL)
+        return NULL;
+    Btree T = S->top_stack[S->lenght-1];
+    S->lenght--;
+    return T;
+}
+
 int max(int x,int y)
 {
     if(x>y)
@@ -54,42 +74,6 @@ int leaf_sum(Btree T)
 
 }
 //exercice 2
-
-void recursive_display_Inorder( Btree T)
-{
-    if(T==NULL)
-       return;
-    
-    recursive_display_Inorder(T->left);
-    printf("%d\n",T->data);
-    recursive_display_Inorder(T->right);
-    
-}
-void iterative_display_Inorder(Btree T)
-{
-    if (T==NULL)
-        return;
-    Bstack  A={NULL,0};
-    Btree tmp = T;
-    while(tmp!=NULL || A.lenght!=N){
-
-        if(tmp!=NULL){
-            push_Btree_stack(tmp , &A);
-            printf("%d    ",tmp->data);
-            tmp=tmp->left;
-        }
-        else{
-            tmp=pop_Btree_stack(&A);
-            printf("%d    ",tmp->data);
-            tmp=tmp->right;
-        }
-    }
-    return;
-    
-}
-
-
-
 
 
 void iterative_insert(Btree T, int x)
@@ -145,5 +129,13 @@ int recursive_searching(Btree T, int x)
 int max_depth(Btree T){
     return tree_depth(T);
 }
+
+int tree_size(Btree T)
+{
+    if (T== NULL)
+        return 0;
+    return 1+tree_size(T->left)+tree_size(T->right);
+}
+
 
 
